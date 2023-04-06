@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <script>
+        $(document).ready(function(){
+$("#myform").validate({
+    rules:{
+        password:{
+            required:true,
+            minlength:8,
+            maxlength:15,
+            pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$#])[A-Za-z\d@$#]{8,15}$/
+        },
+        mobileno:{
+           required:true,
+           pattern:/^[0-9]{10}$/
+        },
+        email:{
+            required:true,
+            pattern:  /^[\w]+@[g][2][t][s][o][l][u][t][i][o][n][s]\.[c][o][m]$/
+        }
+    },
+    messages:{
+        password:{
+            required:"This field is required",
+            minlength:"minimum length should be 8",
+            maxlength:"maximum length should not exceed 15 characters",
+            pattern:"enter a valid password"
+        },
+        mobileno:{
+            required:"This field is required",
+            pattern:"enter a valid mobile number"
+        },
+        email:{
+            required:"This field is required",
+            pattern:"enter a valid email address"
+        }
+
+    }
+
+
+
+});
+
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+<form class="form" id="myform" method="get" action="" name="myform">
+    <fieldset>
+<div class="form1">
+    <label for="password">PASSWORD:</label>
+    <input type="text" id="password" name="password">
+
+</div>
+<div class="form1">
+    <label for="mobileno">mobile number:</label>
+    <input type="tel" id="mobileno" name="mobileno">
+</div>
+<div class="form1">
+    <label for="email">EMAIL:</label>
+    <input type="email" id="email" name="email">
+</div>
+<div class="form1">
+    <button type="submit" value="submit">submit</button>
+</div>
+
+    </fieldset>
+
+
+</form>
+
+    </div>
+</body>
+</html>
